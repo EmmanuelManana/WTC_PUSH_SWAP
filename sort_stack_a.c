@@ -53,11 +53,11 @@ void	get_bool(t_stack *s, int *nums, int cb)
 {
 	nums[0] = s->next->num > s->next->next->num && s->next->next->num > s->num;
 	nums[1] = s->next->next->num > s->num && s->num > s->next->num;
-	nums[2] = s->next->num > s->num && s->num > s->next->next->num;
+	nums[2] = s->next->num < s->num && s->num < s->next->next->num;
 	nums[3] = s->num > s->next->next->num && s->next->next->num > s->next->num;
 	nums[4] = cb
 		? s->num < s->next->num && s->next->num < s->next->next->num
-		: s->num > s->next->num && s->next->num > s->next->next->num;
+		: s->num < s->next->num && s->next->num < s->next->next->num;
 }
 
 void	sort_three(t_stack **a, t_stack **b, int *flags, int cb)
